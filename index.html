@@ -4,116 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculator</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #fff;
-}
-
-h1 {
-    margin-bottom: 25px;
-    font-size: 36px;
-    text-shadow: 3px 3px 8px rgba(0,0,0,0.25);
-}
-
-.calculator {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 25px;
-    width: 370px;
-    max-width: 95vw;
-    transition: transform 0.3s ease;
-}
-
-.calculator:hover {
-    transform: translateY(-4px);
-}
-
-input {
-    width: 100%;
-    padding: 15px;
-    font-size: 30px;
-    text-align: right;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    color: #0d3b66;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1), inset -3px -3px 6px rgba(255,255,255,0.7);
-    border: none;
-}
-
-input:focus {
-    outline: none;
-}
-
-button {
-    width: 60px;
-    height: 60px;
-    margin: 8px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 15px;
-    border: none;
-    background: rgba(255, 255, 255, 0.75);
-    color: #0d3b66;
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.15), -4px -4px 10px rgba(255,255,255,0.4);
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-button:hover {
-    background: #2575fc;
-    color: white;
-    transform: scale(1.07);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-}
-
-.operator {
-    background: rgba(37, 117, 252, 0.85);
-    color: #fff;
-}
-
-.operator:hover {
-    background: #0d3b66;
-}
-
-.equalbtn {
-    background: linear-gradient(135deg, #fc5c7d, #6a82fb);
-    color: white;
-}
-
-.equalbtn:hover {
-    background: linear-gradient(135deg, #f76b1c, #fad961);
-}
-
-@media (max-width: 400px) {
-    button {
-        width: 55px;
-        height: 55px;
-        font-size: 18px;
-    }
-    h1 {
-        font-size: 28px;
-    }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -153,40 +44,7 @@ button:hover {
     </div>
 </div>
 
-<script>
-const display = document.getElementById('display');
-const buttons = document.querySelectorAll('button');
 
-let expression = '';
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        const value = button.innerText;
-        const action = button.dataset.action;
-
-        if (action === 'clear') {
-            expression = '';
-            display.value = '';
-        } else if (action === 'delete') {
-            expression = expression.slice(0, -1);
-            display.value = expression;
-        } else if (action === 'equal') {
-            try {
-                expression = expression.replace(/[^-()\d/*+.%]/g, '');
-                const result = Function(`return (${expression})`)();
-                display.value = result;
-                expression = result.toString();
-            } catch {
-                display.value = "Error";
-                expression = '';
-            }
-        } else {
-            expression += value;
-            display.value = expression;
-        }
-    });
-});
-</script>
-
+<link rel="javascript" href="script.js">
 </body>
 </html>
