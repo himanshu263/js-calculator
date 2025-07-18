@@ -6,7 +6,7 @@ A sleek and responsive Calculator App built with HTML, CSS, and JavaScript. This
 ⸻
 
 🚀 Live Demo
-
+https://himanshu263.github.io/js-calculator/
 👉 View Calculator Live
 
 ⸻
